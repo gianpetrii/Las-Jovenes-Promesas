@@ -2,6 +2,7 @@
 #define CONFIG_H
 
 #include <stdint.h>
+#include <commons/collections/list.h>
 
 typedef struct {
     char* IP_MEMORIA;

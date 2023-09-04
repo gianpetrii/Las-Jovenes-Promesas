@@ -21,7 +21,7 @@ uint8_t generar_conexiones(int *socket_memoria, int *socket_fs, int *socket_cpu_
 }
 
 
-void cargar_configuracion(t_config_kernel* config_kernel) {
+void cargar_configuracion(t_config_kernel *config_kernel) {
     t_config* config = config_create("kernel.config");
 
     if (config == NULL) {
@@ -44,8 +44,7 @@ void cargar_configuracion(t_config_kernel* config_kernel) {
         "GRADO_MULTIPROGRAMACION"
     };
 
-    if(!tiene_todas_las_configuraciones(config, configuraciones))
-    {
+    if(!tiene_todas_las_configuraciones(config, configuraciones)) {
         log_error(logger_kernel, "No se pudo cargar el archivo de configuracion");
         exit(EXIT_FAILURE);
     }

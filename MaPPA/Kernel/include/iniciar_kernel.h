@@ -12,7 +12,7 @@
 #include "../../shared/include/sockets.h"
 #include "../../shared/include/utils.h"
 
-uint8_t generar_conexiones(int *socket_memoria, int *socket_fs, t_config_kernel *confi_kernel);
+uint8_t generar_conexiones(int *socket_memoria, int *socket_fs, int *socket_cpu_dp, int *socket_cpu_it , t_config_kernel *confi_kernel);
 void cargar_configuracion(t_config_kernel *confi_kernel);
 void cerrar_programa(t_log *logger_kernel, t_config_kernel *confi_kernel);
 

@@ -1,8 +1,15 @@
-#include "include/config.h"
-#include "include/logs.h"
+#include "../include/config.h"
+#include "../include/logs.h"
 
 t_config_kernel *config_kernel;
 t_log *logger_kernel;
+
+void iniciar_config() {
+    config_kernel = malloc(sizeof(t_config_kernel));
+    config_kernel->IP_MEMORIA = NULL;
+    config_kernel->IP_FILESYSTEM = NULL;
+    config_kernel->IP_CPU = NULL;
+}
 
 int main() {
     logger_kernel = log_create("kernel.log", "KERNEL", true, LOG_LEVEL_INFO);
@@ -14,6 +21,8 @@ int main() {
         cerrar_programa(logger_kernel, config_kernel);
         return EXIT_FAILURE;
     }
+
+    
     
 
     return EXIT_SUCCESS;
