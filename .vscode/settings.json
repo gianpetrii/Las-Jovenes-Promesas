@@ -1,6 +1,5 @@
 {
     "files.associations": {
-        "cstdlib": "c",
-        "stdlib.h": "c"
+        "logs.h": "c"
     }
 }
