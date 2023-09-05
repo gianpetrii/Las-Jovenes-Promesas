@@ -11,11 +11,11 @@ void inicializar_fs() {
 
 int main() {
     logger_m = log_create("M.log", "M", true, LOG_LEVEL_INFO);
-
+    
     int m_server = iniciar_servidor(logger_m, "127.0.0.1" ,config_m->PUERTO_ESCUCHA);
     //Ver Hilos para la conexion al servidor
-    int cliente_server_fs= esperar_cliente(logger_m, m_server);
     int cliente_server_k= esperar_cliente(logger_m, m_server);
+    int cliente_server_fs= esperar_cliente(logger_m, m_server);  
     int cliente_server_cpu= esperar_cliente(logger_m, m_server);
     
     
