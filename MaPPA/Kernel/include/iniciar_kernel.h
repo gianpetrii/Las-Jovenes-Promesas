@@ -9,8 +9,9 @@
 #include <stdlib.h>
 #include <readline/readline.h>
 
-#include "../../shared/include/sockets.h"
-#include "../../shared/include/utils.h"
+#include "../../Shared/src/sockets.c"
+#include "../../Shared/src/utils.c"
+#include "config.h"
 
 uint8_t generar_conexiones(int *socket_memoria, int *socket_fs, int *socket_cpu_dp, int *socket_cpu_it , t_config_kernel *confi_kernel);
 void cargar_configuracion(t_config_kernel *confi_kernel);
