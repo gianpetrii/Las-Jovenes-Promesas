@@ -12,6 +12,6 @@ void inicializar_fs() {
 }
 
 int main() {
-    
+
     return EXIT_SUCCESS;
 }

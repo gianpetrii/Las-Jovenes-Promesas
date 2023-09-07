@@ -17,6 +17,11 @@ typedef enum {
     INICIAR_PLANIFICACION,
     MUTIPROGRAMACION,
     PROCESO_ESTADO,
+    NEW,
+    READY,
+    BLOCKED,
+    EXEC,
+    EXIT,
     WAIT,
     SIGNAL,
     F_OPEN,
@@ -26,5 +31,19 @@ typedef enum {
     F_READ,
     F_WRITE,
 } op_code;
+
+typedef struct {
+    int size;
+    void *stream;
+}; // Esto todavia no sé si lo vamos a usar! 
+
+typedef struct
+{
+	op_code codigo_operacion;
+	t_buffer* buffer;
+} t_paquete; // Esto todavia no sé si lo vamos a usar!
+
+bool send_aprobar_operativos(int socket_servidor, uint8_t nota1, uint8_t nota2);
+bool recv_aprobar_operativos(int socket_servidor, uint8t_t *nota1, uint8_t *nota2);
 
 #endif /* PROTOCOLO_H */

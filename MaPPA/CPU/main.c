@@ -15,12 +15,11 @@ int main() {
     char *puerto_dispatch = config_cpu->PUERTO_ESCUCHA_DISPATCH;
     char *puerto_interrupt = config_cpu->PUERTO_ESCUCHA_INTERRUPT;
 
+    // Esto hay que modificarlo! 
     int cpu_server_dispatch = iniciar_servidor(logger_cpu, "127.0.0.1" ,puerto_dispatch);
-    int cliente_dispatch = esperar_cliente(logger_cpu, cpu_server_dispatch);
-
     int cpu_server_interrupt = iniciar_servidor(logger_cpu, "127.0.0.1", puerto_interrupt);
-    int cliente_interrupt = esperar_cliente(logger_cpu, cpu_server_interrupt);
-    
+    // Hasta aca
+
     crear_conexion(logger_cpu, "SERVER_MEMORIA", config_cpu->IP_MEMORIA, config_cpu->PUERTO_MEMORIA);
 
     free(puerto_dispatch);
@@ -30,6 +29,8 @@ int main() {
         log_error(logger_cpu, "No se pudo iniciar el servidor");
         exit(EXIT_FAILURE);
     }
+
+    while(server_escuchar(logger_cpu, "CPU", cpu_server_dispatch) || server_escuchar(logger_cpu, "CPU", cpu_server_interrupt)); // Esto estaria bien? 
 
     // Crear un funcion que libere la memoria de config_cpu
 
