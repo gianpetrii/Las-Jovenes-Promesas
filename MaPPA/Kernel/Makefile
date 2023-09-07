@@ -30,10 +30,10 @@ makefolder:
 	if [ ! -d ./obj ]; then mkdir obj; fi
 
 makeshared:
-	make -C ../shared
+	make -C ../Shared
 
 makeshared_debug:
-	make debug -C ../shared
+	make debug -C ../Shared
 
 # Clean
 

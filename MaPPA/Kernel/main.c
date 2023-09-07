@@ -1,5 +1,5 @@
-#include "../include/config.h"
-#include "../include/logs.h"
+#include "include/config.h"
+#include "include/logs.h"
 
 t_config_kernel *config_kernel;
 t_log *logger_kernel;
@@ -16,14 +16,13 @@ int main() {
 
     int memoria, filesystem, cpu_dp, cpu_it;
 
-    if (!cargar_configuracion(config_kernel) && !generar_conexiones(&memoria, &filesystem, &cpu_dp, &cpu_it, config_kernel)
-    {
+    if (!cargar_configuracion(config_kernel) && !generar_conexiones(&memoria, &filesystem, &cpu_dp, &cpu_it, config_kernel)){
         cerrar_programa(logger_kernel, config_kernel);
-        return EXIT_FAILURE;
+        return 1;
     }
 
     
     
 
-    return EXIT_SUCCESS;
+    return 0;
 }

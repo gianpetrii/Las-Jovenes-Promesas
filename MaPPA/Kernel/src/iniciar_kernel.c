@@ -1,6 +1,9 @@
 #include "../include/iniciar_kernel.h"
 #include "../include/logs.h"
 
+
+
+
 uint8_t generar_conexiones(int *socket_memoria, int *socket_fs, int *socket_cpu_dp, int *socket_cpu_it , t_config_kernel *confi_kernel) {
     char *puerto_memoria = string_itoa(confi_kernel->PUERTO_MEMORIA);
     char *puerto_fs = string_itoa(confi_kernel->PUERTO_FILESYSTEM);
@@ -41,7 +44,7 @@ void cargar_configuracion(t_config_kernel *config_kernel) {
         "QUANTUM",
         "RECURSOS",
         "INSTANCIAS_RECURSOS",
-        "GRADO_MULTIPROGRAMACION"
+        "GRADO_MULTIPROGRAMACION_INI"
     };
 
     if(!tiene_todas_las_configuraciones(config, configuraciones)) {
@@ -49,18 +52,18 @@ void cargar_configuracion(t_config_kernel *config_kernel) {
         exit(EXIT_FAILURE);
     }
 
-    config_kernel->IP_MEMORIA = config_get_string_value("kernel.config", "IP_MEMORIA");
-    config_kernel->PUERTO_MEMORIA = config_get_int_value("kernel.config", "PUERTO_MEMORIA");
-    config_kernel->IP_FILESYSTEM = config_get_string_value("kernel.config", "IP_FILESYSTEM");
-    config_kernel->PUERTO_FILESYSTEM = config_get_int_value("kernel.config", "PUERTO_FILESYSTEM");
-    config_kernel->IP_CPU = config_get_string_value("kernel.config", "IP_CPU");
-    config_kernel->PUERTO_CPU_DISPATCH = config_get_int_value("kernel.config", "PUERTO_CPU_DISPATCH");
-    config_kernel->PUERTO_CPU_INTERRUPT = config_get_int_value("kernel.config", "PUERTO_CPU_INTERRUPT");
-    config_kernel->ALGORITMO_PLANIFICACION = config_get_string_value("kernel.config", "ALGORITMO_PLANIFICACION");
-    config_kernel->QUANTUM = config_get_int_value("kernel.config", "QUANTUM");
-    config_kernel->RECURSOS = config_get_array_value("kernel.config", "RECURSOS");
-    config_kernel->INSTANCIAS_RECURSOS = config_get_array_value("kernel.config", "INSTANCIAS_RECURSOS");
-    config_kernel->GRADO_MULTIPROGRAMACION = config_get_int_value("kernel.config", "GRADO_MULTIPROGRAMACION");
+    config_kernel->IP_MEMORIA = config_get_string_value(config, "IP_MEMORIA");
+    config_kernel->PUERTO_MEMORIA = config_get_int_value(config, "PUERTO_MEMORIA");
+    config_kernel->IP_FILESYSTEM = config_get_string_value(config, "IP_FILESYSTEM");
+    config_kernel->PUERTO_FILESYSTEM = config_get_int_value(config, "PUERTO_FILESYSTEM");
+    config_kernel->IP_CPU = config_get_string_value(config, "IP_CPU");
+    config_kernel->PUERTO_CPU_DISPATCH = config_get_int_value(config, "PUERTO_CPU_DISPATCH");
+    config_kernel->PUERTO_CPU_INTERRUPT = config_get_int_value(config, "PUERTO_CPU_INTERRUPT");
+    config_kernel->ALGORITMO_PLANIFICACION = config_get_string_value(config, "ALGORITMO_PLANIFICACION");
+    config_kernel->QUANTUM = config_get_int_value(config, "QUANTUM");
+    config_kernel->RECURSOS = config_get_array_value(config, "RECURSOS");
+    config_kernel->INSTANCIAS_RECURSOS = config_get_array_value(config, "INSTANCIAS_RECURSOS");
+    config_kernel->GRADO_MULTIPROGRAMACION = config_get_int_value(config, "GRADO_MULTIPROGRAMACION_INI");
 
     free(config);
     free(configuraciones);

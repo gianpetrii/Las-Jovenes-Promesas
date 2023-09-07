@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "cambioDeColor.h" // Incluye el archivo de encabezado
+#include "../include/cambioDeColor.h" // Incluye el archivo de encabezado
 
 enum Color {
     DEFAULT = 0,
