@@ -1,9 +1,6 @@
 #include "../include/iniciar_kernel.h"
 #include "../include/logs.h"
 
-
-
-
 uint8_t generar_conexiones(int *socket_memoria, int *socket_fs, int *socket_cpu_dp, int *socket_cpu_it , t_config_kernel *confi_kernel) {
     char *puerto_memoria = string_itoa(confi_kernel->PUERTO_MEMORIA);
     char *puerto_fs = string_itoa(confi_kernel->PUERTO_FILESYSTEM);

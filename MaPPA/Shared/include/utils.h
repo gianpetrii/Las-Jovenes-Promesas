@@ -7,6 +7,6 @@
 #include <stddef.h>
 #include <stdio.h>
 
-uint8_t tiene_todas_las_configuraciones(t_config *config, char *configuraciones[]);
+uint8_t tiene_todas_las_configuraciones(t_config *config, char **configuraciones);
 
 #endif /* UTILS_H_ */
